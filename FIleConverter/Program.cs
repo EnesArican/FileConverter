@@ -14,7 +14,7 @@ namespace FIleConverter
         {
             Console.WriteLine("Welcome to the File Converter App for Fazilet prayer times!");
            
-            Console.WriteLine("Please Enter file path of .txt file that is in json format");
+            Console.WriteLine("\n Please Press Enter to Continue");
 
             Console.ReadLine();
 
@@ -30,6 +30,11 @@ namespace FIleConverter
                 {
                     Console.WriteLine(obj.isani);
                 }
+
+
+
+
+
 
             }
 

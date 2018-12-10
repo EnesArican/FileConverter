@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIleConverter", "FIleConverter\FIleConverter.csproj", "{56F56E4A-B999-452F-9EC2-2AA6A79E900B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileConverterTests", "FileConverterTests\FileConverterTests.csproj", "{DF6ECEBE-2183-4D42-A7B9-58EE079C345B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{56F56E4A-B999-452F-9EC2-2AA6A79E900B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56F56E4A-B999-452F-9EC2-2AA6A79E900B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56F56E4A-B999-452F-9EC2-2AA6A79E900B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6ECEBE-2183-4D42-A7B9-58EE079C345B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6ECEBE-2183-4D42-A7B9-58EE079C345B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6ECEBE-2183-4D42-A7B9-58EE079C345B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6ECEBE-2183-4D42-A7B9-58EE079C345B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
