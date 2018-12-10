@@ -13,28 +13,24 @@ namespace FileConverter
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the File Converter App for Fazilet prayer times!");
-           
             Console.WriteLine("\n Please Press Enter to Continue");
-
             Console.ReadLine();
 
             string path = @"C:\Users\enes\Documents\fazilet-takvimi-namaz-vakitleri\2019-namaz-vakitleri.txt";
+
+            FileBuilder builder = new FileBuilder(1);
 
             using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open)))
             {
 
                 IEnumerable<PrayerTime> prayerTimes = JsonConvert.DeserializeObject<IEnumerable<PrayerTime>>(reader.ReadToEnd());
 
+                builder.Build(prayerTimes);
 
-                foreach (PrayerTime obj in prayerTimes)
-                {
-                    Console.WriteLine(obj.isani);
-                }
-
-
-
-
-
+               // foreach (PrayerTime obj in prayerTimes)
+               // {
+               //     Console.WriteLine(obj.isani);
+               // }
 
             }
 

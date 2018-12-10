@@ -8,6 +8,6 @@ namespace FileConverter.ConverterTypes
 {
     interface IConverterBase
     {
-        void Convert();
+        void Convert(IEnumerable<PrayerTime> prayerTimes);
     }
 }

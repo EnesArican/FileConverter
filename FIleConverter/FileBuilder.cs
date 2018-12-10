@@ -12,7 +12,7 @@ namespace FileConverter
         IConverterBase fileConverter;
 
 
-        public FileBuilder(int conversionType)
+        public FileBuilder(int? conversionType)
         {
             switch (conversionType)
             {
@@ -24,13 +24,13 @@ namespace FileConverter
         }
 
 
-        public void Build()
+        public void Build(IEnumerable<PrayerTime> prayerTimes)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string name = "PrayerTimes";
 
           
-            fileConverter.Convert();
+            fileConverter.Convert(prayerTimes);
         }
 
     }

@@ -8,10 +8,10 @@ namespace FileConverter.ConverterTypes
 {
     class TxtConverter : IConverterBase
     {
-        public void Convert()
+        public void Convert(IEnumerable<PrayerTime> prayerTimes)
         {
 
-
+            Console.WriteLine("you have entered txtConverter Blud");
         }
     }
 }
