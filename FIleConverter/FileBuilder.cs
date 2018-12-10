@@ -1,29 +1,19 @@
-﻿using FIleConverter.ConverterTypes;
+﻿using FileConverter.ConverterTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FIleConverter
+namespace FileConverter
 {
     public class FileBuilder
     {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string name = "PrayerTimes";
+        IConverterBase fileConverter;
 
 
-        public FileBuilder()
+        public FileBuilder(int conversionType)
         {
-            
-
-        }
-
-
-        public void Build(int conversionType)
-        {
-            IConverterBase fileConverter;
-
             switch (conversionType)
             {
                 case 1:
@@ -31,7 +21,15 @@ namespace FIleConverter
                     fileConverter = new TxtConverter();
                     break;
             }
+        }
 
+
+        public void Build()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string name = "PrayerTimes";
+
+          
             fileConverter.Convert();
         }
 

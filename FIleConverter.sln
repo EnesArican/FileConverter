@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIleConverter", "FIleConverter\FIleConverter.csproj", "{56F56E4A-B999-452F-9EC2-2AA6A79E900B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileConverter", "FIleConverter\FileConverter.csproj", "{56F56E4A-B999-452F-9EC2-2AA6A79E900B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileConverterTests", "FileConverterTests\FileConverterTests.csproj", "{DF6ECEBE-2183-4D42-A7B9-58EE079C345B}"
 EndProject
