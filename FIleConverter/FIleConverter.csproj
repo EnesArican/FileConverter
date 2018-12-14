@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConverterTypes\ConverterBase.cs" />
     <Compile Include="ConverterTypes\IConverterBase.cs" />
     <Compile Include="ConverterTypes\TxtConverter.cs" />
     <Compile Include="FileBuilder.cs" />
