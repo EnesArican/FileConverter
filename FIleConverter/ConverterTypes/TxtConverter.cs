@@ -13,14 +13,15 @@ namespace FileConverter.ConverterTypes
 
         public override void Convert(IEnumerable<PrayerTime> prayerTimes)
         {
+            prayerTimes = prayerTimes.OrderBy(p => p.tarih);
+
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(this.Path))
             {
                 file.WriteLine("Date    Fajr    Sunrise     Dhuhr      Asr      Maghrib     Isha'");
 
                 foreach (PrayerTime item in prayerTimes)
                 {
-                    string[] times = { item.tarih.ToShortDateString(), item.sabah, item.gunes, item.ogle, item.ikindi, item.aksam, item.yatsi };
-                    file.WriteLine(string.Format("{0}   {1}     {2}     {3}     {4}", times));
+                    file.WriteLine(string.Format("{0}   {1}     {2}     {3}     {4}", item.tarih.ToShortDateString(), item.sabah, item.gunes, item.ogle, item.ikindi, item.aksam, item.yatsi));
                 }
             }
 
