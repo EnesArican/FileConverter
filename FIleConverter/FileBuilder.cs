@@ -14,11 +14,12 @@ namespace FileConverter
 
         public FileBuilder(int? conversionType)
         {
+            string path = "hello";
             switch (conversionType)
             {
                 case 1:
                 default:
-                    fileConverter = new TxtConverter();
+                    fileConverter = new TxtConverter(path);
                     break;
             }
         }
