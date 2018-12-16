@@ -1,7 +1,7 @@
-﻿using FileConverter;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace FileConverter.ConverterTypes
 {
@@ -10,6 +10,30 @@ namespace FileConverter.ConverterTypes
         public override void Convert(StreamWriter file, IEnumerable<PrayerTime> prayerTimes)
         {
             SetHeader(file);
+
+
+            var year = prayerTimes.Min(p => p.Year);
+            var prayerTimesForYear = prayerTimes.Where(p => p.Year == year);
+
+            var month = prayerTimesForYear.Min(p => p.Month);
+            var prayerTimersForMonth = prayerTimesForYear.Where(p => p.Month == month);
+
+
+
+
+
+
+
+
+            file.WriteLine(year);
+            
+
+
+
+
+
+
+
             foreach (PrayerTime item in prayerTimes)
             {
                 file.WriteLine(string.Format("{0}       {1}         {2}         {3}         {4}         {5}         {6}",
@@ -23,7 +47,10 @@ namespace FileConverter.ConverterTypes
         {
             file.WriteLine("London");
             file.WriteLine(DateTime.Now.ToString("d/M/yyyy"));
-            Console.WriteLine(DateTime.Now.ToString("d/M/yyyy"));
+            file.WriteLine("2");
+            file.WriteLine(Constants.Years.Count);
+            file.WriteLine(Constants.Years.Min(y => y));
+            for (int i = 0; i < 5; i++) { file.WriteLine(" "); }
         }
     }
 }

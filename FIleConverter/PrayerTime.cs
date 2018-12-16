@@ -34,5 +34,21 @@ namespace FileConverter
 
         public string israk { get; set; }
 
+        public int Year
+        {
+            get { return tarih.Year; }
+        }
+
+        public int Month
+        {
+            get { return tarih.Month; }
+        }
+
+        public int Day
+        {
+            get { return tarih.Day; }
+        }
+
+
     }
 }
