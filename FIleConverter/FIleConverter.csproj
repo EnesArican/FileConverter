@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="ConverterTypes\AwaConverter.cs" />
     <Compile Include="ConverterTypes\ConverterBase.cs" />
     <Compile Include="ConverterTypes\IConverterBase.cs" />
     <Compile Include="ConverterTypes\TxtConverter.cs" />

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 
 
-namespace FIleConverter.ConverterTypes
+namespace FileConverter.ConverterTypes
 {
     public abstract class ConverterBase : IConverterBase
     {

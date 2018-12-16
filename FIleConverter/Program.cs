@@ -1,12 +1,10 @@
-﻿using FIleConverter;
-using FIleConverter.Enums;
+﻿using FileConverter;
+using FileConverter.Enums;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FileConverter
 {
@@ -20,7 +18,7 @@ namespace FileConverter
 
             List<PrayerTime> prayerTimes = new List<PrayerTime>();
 
-            FileBuilder builder = new FileBuilder(ConverterType.Txt);
+            FileBuilder builder = new FileBuilder(ConverterType.Awa);
 
 
             GetPrayerTimes(prayerTimes);
