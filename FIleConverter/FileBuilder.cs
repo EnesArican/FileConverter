@@ -1,4 +1,6 @@
 ﻿using FileConverter.ConverterTypes;
+using FIleConverter;
+using FIleConverter.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +14,15 @@ namespace FileConverter
         IConverterBase fileConverter;
 
 
-        public FileBuilder(int? conversionType)
+        public FileBuilder(ConverterType conversionType)
         {
-            string path = "hello";
             switch (conversionType)
             {
-                case 1:
+                case ConverterType.Awa:
+                    break;
+                case ConverterType.Txt:
                 default:
-                    fileConverter = new TxtConverter(path);
+                    fileConverter = new TxtConverter(Constants.RawFilePath + "FaziletPrayerTimes.txt");
                     break;
             }
         }
@@ -27,10 +30,6 @@ namespace FileConverter
 
         public void Build(IEnumerable<PrayerTime> prayerTimes)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            string name = "PrayerTimes";
-
-          
             fileConverter.Convert(prayerTimes);
         }
 

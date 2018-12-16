@@ -45,9 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="ConverterTypes\ConverterBase.cs" />
     <Compile Include="ConverterTypes\IConverterBase.cs" />
     <Compile Include="ConverterTypes\TxtConverter.cs" />
+    <Compile Include="Enums\ConverterType.cs" />
     <Compile Include="FileBuilder.cs" />
     <Compile Include="PrayerTime.cs" />
     <Compile Include="Program.cs" />

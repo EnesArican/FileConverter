@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using FIleConverter;
+using FIleConverter.Enums;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,30 +15,37 @@ namespace FileConverter
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the File Converter App for Fazilet prayer times!");
-            Console.WriteLine("\n Please Press Enter to Continue");
+            Console.WriteLine("\nPlease Press Enter to Continue");
             Console.ReadLine();
 
-            string path = @"C:\Users\enes\Documents\fazilet-takvimi-namaz-vakitleri\2019-namaz-vakitleri.txt";
+            List<PrayerTime> prayerTimes = new List<PrayerTime>();
 
-            FileBuilder builder = new FileBuilder(1);
+            FileBuilder builder = new FileBuilder(ConverterType.Txt);
 
-            using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open)))
+
+            GetPrayerTimes(prayerTimes);
+
+            builder.Build(prayerTimes);
+
+            Console.WriteLine("\nDone Blud");
+            Console.ReadLine();
+
+        }
+
+
+      
+
+        public static void GetPrayerTimes(List<PrayerTime> prayerTimes)
+        {
+            foreach (int year in Constants.Years)
             {
+                var filePath = Constants.RawFilePath + year + Constants.RawFileName;
+                using (StreamReader reader = new StreamReader(new FileStream(filePath, FileMode.Open)))
+                {
+                    prayerTimes.AddRange(JsonConvert.DeserializeObject<IEnumerable<PrayerTime>>(reader.ReadToEnd()));
+                }
 
-                IEnumerable<PrayerTime> prayerTimes = JsonConvert.DeserializeObject<IEnumerable<PrayerTime>>(reader.ReadToEnd());
-
-                builder.Build(prayerTimes);
-
-               // foreach (PrayerTime obj in prayerTimes)
-               // {
-               //     Console.WriteLine(obj.isani);
-               // }
-
-            }
-
-            Console.WriteLine("Done Blud");
-            Console.ReadLine();
-
+            }  
         }
     }
 }

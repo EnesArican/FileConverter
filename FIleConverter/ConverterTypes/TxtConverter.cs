@@ -17,11 +17,11 @@ namespace FileConverter.ConverterTypes
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(this.Path))
             {
-                file.WriteLine("Date    Fajr    Sunrise     Dhuhr      Asr      Maghrib     Isha'");
+                file.WriteLine("Date             Fajr         Sunrise        Dhuhr         Asr          Maghrib        Isha'");
 
                 foreach (PrayerTime item in prayerTimes)
                 {
-                    file.WriteLine(string.Format("{0}   {1}     {2}     {3}     {4}", item.tarih.ToShortDateString(), item.sabah, item.gunes, item.ogle, item.ikindi, item.aksam, item.yatsi));
+                    file.WriteLine(string.Format("{0}       {1}         {2}         {3}         {4}         {5}         {6}", item.tarih.ToShortDateString(), item.sabah, item.gunes, item.ogle, item.ikindi, item.aksam, item.yatsi));
                 }
             }
 
