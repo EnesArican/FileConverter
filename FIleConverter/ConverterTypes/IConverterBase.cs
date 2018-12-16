@@ -9,8 +9,7 @@ namespace FileConverter.ConverterTypes
 {
     interface IConverterBase
     {
-        void Convert(IEnumerable<PrayerTime> prayerTimes);
+        void Convert(StreamWriter file, IEnumerable<PrayerTime> prayerTimes);
 
-        FileStream TryCreateFile(string path);
     }
 }

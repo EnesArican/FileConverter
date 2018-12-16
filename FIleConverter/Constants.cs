@@ -13,6 +13,9 @@ namespace FIleConverter
         public static readonly string RawFileName = "-namaz-vakitleri.txt";
 
 
+        public static readonly string NewFileName = "FaziletPrayerTimes";
+
+
         public static readonly string RawFilePath = @"C:\Users\enes\Documents\fazilet-takvimi-namaz-vakitleri\";
 
     }
