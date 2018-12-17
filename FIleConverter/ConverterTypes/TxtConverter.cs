@@ -13,7 +13,8 @@ namespace FileConverter.ConverterTypes
             foreach (PrayerTime item in prayerTimes)
             {
                 file.WriteLine(string.Format("{0}       {1}         {2}         {3}         {4}         {5}         {6}", 
-                        item.tarih.ToShortDateString(), item.sabah, item.gunes, item.ogle, item.ikindi, item.aksam, item.yatsi));
+                        item.Tarih.ToShortDateString(), item.Sabah.ToString(@"hh\:mm"), item.Gunes.ToString(@"hh\:mm"), item.Ogle.ToString(@"hh\:mm"), 
+                                                        item.Ikindi.ToString(@"hh\:mm"), item.Aksam.ToString(@"hh\:mm"), item.Yatsi));
             }
             Console.WriteLine("you have entered txtConverter Blud");
         }

@@ -8,46 +8,39 @@ namespace FileConverter
 {
     public class PrayerTime
     {
-        public DateTime tarih { get; set; }
+        public DateTime Tarih { get; set; }
 
-        public string isani { get; set; }
+        public string Isani { get; set; }
 
-        public string asani { get; set; }
+        public string Asani { get; set; }
 
-        public string imsak { get; set; }
+        public string Imsak { get; set; }
 
-        public string ogle { get; set; }
+        public TimeSpan Sabah { get; set; }
 
-        public string sabah { get; set; }
+        public TimeSpan Gunes { get; set; }
 
-        public string ikindi { get; set; }
+        public TimeSpan Ogle { get; set; }
 
-        public string kible { get; set; }
+        public TimeSpan Ikindi { get; set; }
 
-        public string aksam { get; set; }
+        public TimeSpan Aksam { get; set; }
 
-        public string yatsi { get; set; }
-
-        public int bolge_id { get; set; }
-
-        public string gunes { get; set; }
-
-        public string israk { get; set; }
-
-        public int Year
+        public TimeSpan YatsiTime
         {
-            get { return tarih.Year; }
+            get
+            {
+                return TimeSpan.Parse(Yatsi.Substring(0,5));
+            }
         }
 
-        public int Month
-        {
-            get { return tarih.Month; }
-        }
+        public string Yatsi { get; set; }
 
-        public int Day
-        {
-            get { return tarih.Day; }
-        }
+        public string Kible { get; set; }
+
+        public int Bolge_id { get; set; }
+
+        public string Israk { get; set; }
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileConverter.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace FileConverter
 
 
         public static readonly string RawFilePath = @"C:\Users\enes\Documents\fazilet-takvimi-namaz-vakitleri\";
+
+        public static readonly ConverterType SelectedFileType = ConverterType.Awa;
 
     }
 }

@@ -18,7 +18,7 @@ namespace FileConverter
 
             List<PrayerTime> prayerTimes = new List<PrayerTime>();
 
-            FileBuilder builder = new FileBuilder(ConverterType.Awa);
+            FileBuilder builder = new FileBuilder(Constants.SelectedFileType);
 
 
             GetPrayerTimes(prayerTimes);

@@ -23,7 +23,7 @@ namespace FileConverter
             if (File.Exists(this.Path)) { File.Delete(this.Path); }
             using (StreamWriter file = new StreamWriter(this.Path))
             {
-                prayerTimes = prayerTimes.OrderBy(p => p.tarih);
+                prayerTimes = prayerTimes.OrderBy(p => p.Tarih);
                 fileConverter.Convert(file, prayerTimes);
             }
         }
