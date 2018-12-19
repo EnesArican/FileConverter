@@ -43,7 +43,7 @@ namespace FileConverter.ConverterTypes
 
                         WriteMinutesToFile(file, sabahMinutes, gunesMinutes, ogleMinutes, ikindiMinutes, aksamMinutes, yatsiMinutes);
 
-                        if (prayerTime.Tarih.Month == 2 && prayerTime == lastDayOfMonth)
+                        if (prayerTime == lastDayOfMonth)
                         {
                             for (int i = prayerTime.Tarih.Day; i < 31; i++)
                             {
@@ -70,7 +70,7 @@ namespace FileConverter.ConverterTypes
 
         private void WriteMinutesToFile(StreamWriter file, double sabah, double gunes, double ogle, double ikindi, double aksam, double yatsi)
         {
-            file.WriteLine(sabah + " " + gunes + " " + ogle + " " + ikindi + " " + aksam + " " + yatsi);
+            file.WriteLine(sabah + " " + gunes + " " + ogle + " " + ikindi + " " + aksam + " " + yatsi + " ");
         }
 
 
