@@ -20,6 +20,7 @@ namespace FileConverter.ConverterTypes
 
                 foreach (IEnumerable<PrayerTime> timesForMonth in timesForYear.GroupBy(p => p.Tarih.Month))
                 {
+                    var lastDayOfMonth = timesForMonth.Last();
 
                     var minHourInMonthSabah = timesForMonth.Min(p => p.Sabah.Hours);
                     var minHourInMonthGunes = timesForMonth.Min(p => p.Gunes.Hours);
@@ -40,49 +41,19 @@ namespace FileConverter.ConverterTypes
                         var aksamMinutes = prayerTime.Aksam.TotalMinutes - (minHourInMonthAksam * 60);
                         var yatsiMinutes = prayerTime.YatsiTime.TotalMinutes - (minHourInMonthYatsi * 60);
 
-                        file.WriteLine(sabahMinutes + " " + gunesMinutes + " " + ogleMinutes + " " + ikindiMinutes + " " + aksamMinutes + " " + yatsiMinutes);
+                        WriteMinutesToFile(file, sabahMinutes, gunesMinutes, ogleMinutes, ikindiMinutes, aksamMinutes, yatsiMinutes);
+
+                        if (prayerTime.Tarih.Month == 2 && prayerTime == lastDayOfMonth)
+                        {
+                            for (int i = prayerTime.Tarih.Day; i < 31; i++)
+                            {
+                                WriteMinutesToFile(file, sabahMinutes, gunesMinutes, ogleMinutes, ikindiMinutes, aksamMinutes, yatsiMinutes);
+                            }
+                        }
+
                     }
                 }
             }
-
-
-            // var year = prayerTimes.Min(p => p.Tarih.Year);
-            var prayerTimesForYear = prayerTimes;//.Where(p => p.Tarih.Year == year);
-
-            //var month = prayerTimesForYear.Min(p => p.Tarih.Month);
-            //var prayerTimesForMonth = prayerTimesForYear.Where(p => p.Tarih.Month == month);
-
-            //var minHourInMonthSabah = prayerTimesForMonth.Min(p => p.Sabah.Hours);
-            //var minHourInMonthGunes = prayerTimesForMonth.Min(p => p.Gunes.Hours);
-            //var minHourInMonthOgle = prayerTimesForMonth.Min(p => p.Ogle.Hours);
-            //var minHourInMonthIkindi = prayerTimesForMonth.Min(p => p.Ikindi.Hours);
-            //var minHourInMonthAksam = prayerTimesForMonth.Min(p => p.Aksam.Hours);
-            //var minHourInMonthYatsi = prayerTimesForMonth.Min(p => p.YatsiTime.Hours);
-
-
-            //file.WriteLine(year);
-            //file.WriteLine(minHourInMonthSabah + " " + minHourInMonthGunes + " " + minHourInMonthOgle +  " " + 
-            //                                    minHourInMonthIkindi + " " + minHourInMonthAksam + " " + minHourInMonthYatsi);
-
-            //foreach (PrayerTime prayerTime in prayerTimesForMonth)
-            //{
-            //    var sabahMinutes = prayerTime.Sabah.TotalMinutes - (minHourInMonthSabah * 60);
-            //    var gunesMinutes = prayerTime.Gunes.TotalMinutes - (minHourInMonthGunes * 60);
-            //    var ogleMinutes = prayerTime.Ogle.TotalMinutes - (minHourInMonthOgle * 60);
-            //    var ikindiMinutes = prayerTime.Ikindi.TotalMinutes - (minHourInMonthIkindi * 60);
-            //    var aksamMinutes = prayerTime.Aksam.TotalMinutes - (minHourInMonthAksam * 60);
-            //    var yatsiMinutes = prayerTime.YatsiTime.TotalMinutes - (minHourInMonthYatsi * 60);
-
-            //    file.WriteLine(sabahMinutes + " " + gunesMinutes + " " + ogleMinutes + " " + ikindiMinutes + " " + aksamMinutes + " " + yatsiMinutes);
-
-            //}
-
-            
-
-
-
-
-            
             Console.WriteLine("you have entered awaConverter Blud");
         }
 
@@ -97,6 +68,10 @@ namespace FileConverter.ConverterTypes
             for (int i = 0; i < 5; i++) { file.WriteLine(" "); }
         }
 
+        private void WriteMinutesToFile(StreamWriter file, double sabah, double gunes, double ogle, double ikindi, double aksam, double yatsi)
+        {
+            file.WriteLine(sabah + " " + gunes + " " + ogle + " " + ikindi + " " + aksam + " " + yatsi);
+        }
 
 
     }
