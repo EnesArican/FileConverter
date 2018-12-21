@@ -30,7 +30,7 @@ namespace FileConverter.ConverterTypes
                     var minHourInMonthYatsi = timesForMonth.Min(p => p.YatsiTime.Hours);
 
                     file.WriteLine(minHourInMonthSabah + " " + minHourInMonthGunes + " " + minHourInMonthOgle + " " +
-                                               minHourInMonthIkindi + " " + minHourInMonthAksam + " " + minHourInMonthYatsi);
+                                               minHourInMonthIkindi + " " + minHourInMonthAksam + " " + minHourInMonthYatsi + " ");
 
                     foreach (PrayerTime prayerTime in timesForMonth)
                     {
@@ -50,7 +50,6 @@ namespace FileConverter.ConverterTypes
                                 WriteMinutesToFile(file, sabahMinutes, gunesMinutes, ogleMinutes, ikindiMinutes, aksamMinutes, yatsiMinutes);
                             }
                         }
-
                     }
                 }
             }
