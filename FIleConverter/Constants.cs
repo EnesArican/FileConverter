@@ -19,7 +19,5 @@ namespace FileConverter
 
         public static readonly string RawFilePath = @"C:\Users\enes\Documents\fazilet-takvimi-namaz-vakitleri\";
 
-        public static readonly ConverterType SelectedFileType = ConverterType.Awa;
-
     }
 }
