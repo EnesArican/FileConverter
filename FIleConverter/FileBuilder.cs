@@ -15,20 +15,10 @@ namespace FileConverter
         public FileBuilder(ConverterType conversionType)
         {
             this.Path = SetNewFilePath(conversionType);
-            SetConverterType(conversionType);
+            SetFileConverter(conversionType);
         }
 
-        public void Build(IEnumerable<PrayerTime> prayerTimes)
-        {
-            if (File.Exists(this.Path)) { File.Delete(this.Path); }
-            using (StreamWriter file = new StreamWriter(this.Path))
-            {
-                prayerTimes = prayerTimes.OrderBy(p => p.Tarih);
-                fileConverter.Convert(file, prayerTimes);
-            }
-        }
-
-        private void SetConverterType(ConverterType conversionType)
+        private void SetFileConverter(ConverterType conversionType)
         {
             switch (conversionType)
             {
@@ -39,6 +29,16 @@ namespace FileConverter
                 default:
                     fileConverter = new TxtConverter();
                     break;
+            }
+        }
+
+        public void Build(IEnumerable<PrayerTime> prayerTimes)
+        {
+            if (File.Exists(this.Path)) { File.Delete(this.Path); }
+            using (StreamWriter file = new StreamWriter(this.Path))
+            {
+                prayerTimes = prayerTimes.OrderBy(p => p.Tarih);
+                fileConverter.Convert(file, prayerTimes);
             }
         }
 

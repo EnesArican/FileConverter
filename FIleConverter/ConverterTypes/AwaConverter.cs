@@ -11,8 +11,6 @@ namespace FileConverter.ConverterTypes
         {
             SetHeader(file);
 
-
-
             foreach (IEnumerable<PrayerTime> timesForYear in prayerTimes.GroupBy(p => p.Tarih.Year))
             {
                 var year = timesForYear.Select(t => t.Tarih.Year).First();
