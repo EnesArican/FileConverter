@@ -25,7 +25,7 @@ namespace FileConverter.ConverterTypes
                     var minHourInMonthOgle = timesForMonth.Min(p => p.Ogle.Hours);
                     var minHourInMonthIkindi = timesForMonth.Min(p => p.Ikindi.Hours);
                     var minHourInMonthAksam = timesForMonth.Min(p => p.Aksam.Hours);
-                    var minHourInMonthYatsi = timesForMonth.Min(p => p.YatsiTime.Hours);
+                    var minHourInMonthYatsi = timesForMonth.Where(t => t.YatsiTime.Hours != 0).Min(p => p.YatsiTime.Hours);
 
                     file.WriteLine(minHourInMonthSabah + " " + minHourInMonthGunes + " " + minHourInMonthOgle + " " +
                                                minHourInMonthIkindi + " " + minHourInMonthAksam + " " + minHourInMonthYatsi + " ");
@@ -41,6 +41,7 @@ namespace FileConverter.ConverterTypes
 
                         WriteMinutesToFile(file, sabahMinutes, gunesMinutes, ogleMinutes, ikindiMinutes, aksamMinutes, yatsiMinutes);
 
+                        //Think this is a default (e.g. for feb) but need to check
                         if (prayerTime == lastDayOfMonth)
                         {
                             for (int i = prayerTime.Tarih.Day; i < 31; i++)
