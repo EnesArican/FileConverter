@@ -39,9 +39,15 @@ namespace FileConverter.ConverterTypes
                         var aksamMinutes = prayerTime.Aksam.TotalMinutes - (minHourInMonthAksam * 60);
                         var yatsiMinutes = prayerTime.YatsiTime.TotalMinutes - (minHourInMonthYatsi * 60);
 
+                        //handle case where prayer time for isha is after 12 
+                        if (yatsiMinutes < 0)
+                        {
+                            yatsiMinutes = (prayerTime.YatsiTime.TotalMinutes + (24 * 60) - (minHourInMonthYatsi * 60));
+                        }
+
                         WriteMinutesToFile(file, sabahMinutes, gunesMinutes, ogleMinutes, ikindiMinutes, aksamMinutes, yatsiMinutes);
 
-                        //Think this is a default (e.g. for feb) but need to check
+                        //need to have 31 entries for every month
                         if (prayerTime == lastDayOfMonth)
                         {
                             for (int i = prayerTime.Tarih.Day; i < 31; i++)
